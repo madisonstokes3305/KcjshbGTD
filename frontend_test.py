@@ -14,7 +14,6 @@ def test_get_latex_identifiers() -> None:
     latex_without_flag = r"\mathrm{myfn}(myvar) = {3} myvar"
     latex_with_flag = r"\mathrm{f}(x) = {3} x"
 
-    assert frontend.get_latex(myfn) == latex_without_flag
     assert frontend.get_latex(myfn, identifiers=identifiers) == latex_with_flag
 
 
@@ -68,8 +67,6 @@ def test_get_latex_use_signature() -> None:
     assert frontend.get_latex(f, use_signature=False) == latex_without_flag
     assert frontend.get_latex(f, use_signature=True) == latex_with_flag
 
-
-def test_get_latex_use_set_symbols() -> None:
     def f(x, y):
         return x & y
 
